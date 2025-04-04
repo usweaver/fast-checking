@@ -1,0 +1,6 @@
+[submodule "fast-checking-backend"]
+	path = fast-checking-backend
+	url = git@github.com:usweaver/fast-checking-backend.git
+[submodule "fast-checking-frontend"]
+	path = fast-checking-frontend
+	url = git@github.com:usweaver/fast-checking-frontend.git

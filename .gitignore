@@ -1,0 +1,5 @@
+.vscode
+docker-compose-prod.yml
+favicon.afdesign
+nginx.conf
+.DS_Store

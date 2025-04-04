@@ -1,0 +1,56 @@
+services:
+  fast-checking-db:
+    image: postgres:15
+    container_name: fast-checking-db
+    environment:
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: fiznij-tadpa1-sUvxaf
+      POSTGRES_DB: fastchecking
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - fast-checking-network
+  fast-checking-backend:
+    image: openjdk:17-oracle
+    container_name: fast-checking-backend
+    working_dir: /app
+    volumes:
+      - ./fast-checking-backend/target:/app/target
+    ports:
+      - "8080:8080"
+    command: ["java", "-jar", "/app/target/fastChecking-0.0.1-SNAPSHOT.jar"]
+    environment:
+      DB_HOST: fast-checking-db
+      DB_PORT: 5432
+      DB_NAME: fastchecking
+      DB_USER: db_user
+      DB_PASSWORD: fiznij-tadpa1-sUvxaf
+      SPRING_PROFILES_ACTIVE: dev
+      FRONTEND_URL: http://localhost:3000
+      JWT_SECRET: supersecretkey
+    depends_on:
+      - fast-checking-db
+    networks:
+      - fast-checking-network
+  fast-checking-frontend:
+    image: node:20
+    container_name: fast-checking-frontend
+    working_dir: /app
+    volumes:
+      - ./fast-checking-frontend:/app
+    ports:
+      - "3000:3000"
+    command: ["npm", "run", "start"]
+    depends_on:
+      - fast-checking-backend
+    networks:
+      - fast-checking-network
+
+volumes:
+  postgres_data:
+
+networks:
+  fast-checking-network:
+    driver: bridge
