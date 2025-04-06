@@ -1,5 +1,5 @@
 # FastChecking  
-**FastChecking** is a Progressive Web App (PWA) that helps users manage their budget quickly and efficiently. It focuses on simplicity and speed, making budget tracking less of a chore.
+**FastChecking** is a mobile web app that helps users manage their budget quickly and efficiently. It focuses on simplicity and speed, making budget tracking less of a chore.
 
 ## Why This Project?  
 FastChecking is a personal project born from a frustration: I couldn’t find a budgeting app on the App Store that truly matched my needs. I wanted something lightweight, fast, and focused only on the essentials. This project reflects my desire to create a tool that fits **my daily routine**, while learning new technologies in the process.
